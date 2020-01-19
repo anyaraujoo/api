@@ -1,0 +1,143 @@
+{
+	"info": {
+		"_postman_id": "c2f7c848-5cd4-4be4-b5f7-ebb46eba0f38",
+		"name": "ProjetoCI&T",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "post-users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "82dd1a12-1807-4edb-a4f5-f49d59a0b99c",
+						"exec": [
+							"//Health Check",
+							"pm.test(\"Response Code is 201\", function () {",
+							"    pm.response.to.have.status(201)",
+							"});",
+							"",
+							"pm.test(\"Response has a valid JSON body\", function () {",
+							"    pm.response.to.be.withBody;",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Verify fields integrity\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.userId).not.be.null;",
+							"    pm.expect(jsonData.id).not.be.null;",
+							"    pm.expect(jsonData.title).not.be.null;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc0JhY2tPZmZpY2UiOnRydWUsInB1YmxpY0lkIjoiMDYwMzEyMjA2MDEiLCJ1c2VyUGxhbnRhSWQiOjE4LCJ1c2VyTml2ZWxJZCI6MjEsImlzQWRtaW5pc3RyYWRvckdlcmFsIjp0cnVlLCJhZG1pblBlcm1pc3NvZXMiOltdfQ.3fcsPWQ2gT0x76CzNPtE80tHSgBJjZqsR29PbtxRjT4"
+					},
+					{
+						"key": "Authorization-Security",
+						"type": "text",
+						"value": "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..BLxKQURQj8K9ON4sg2JCog.iyt30iJ5ph9l00yM_y2edEaw297WFCrAmhGT0cv0PcCG2JiVNXKQ2VCRgCEeW950S8PVSwv0gDWTX2fAUrX1Ltw6f6kDaBVvMDpyDtbnEVNdcBAvs7livdcAbm3zh2U_HHjIBe3kHmYcjdhe82jTjuCVt-Rl6J1F-pN4iDOK8kuugZ-_TI-DlVd9uW4Eci0VVZv5WF65EnP_g8cHMb7bO_q_UOvLPeM44qWg5GOsziqHevwW4k5au8C1ht0aE8OzYXmDSgnC6o8YKpBFyFQAnMJeFZa8xOOfMlRt1DJHl2uDgM-tN7Xg505wtqhtcLbAzdoCWIRtQ0Uef9ynpFOSG_7vwGY5UNw-CLnsqwbZSQxDhkHQDVCriAiAedcMZzIozHR4a4zpaly10DmaaBcd1_L4uypWkbFXboyAPmogTlusCjCd0O4CF6ylNJ1fAFD4Rvitxca1PDjk1XXl_ZCBl55XBu-VNmmkoNp9KGJz1jybu8tHCszZ2T0hwUq4saEm2axSPTcCq7OzelSbO-K37v1AXwYyAD9uvEu4Jbn6fYot5o8hYN2_ytUvHUwTsU-uaw5-Ag41SY5zP3d97stXSViy060-kEE69b78pqldDk2_YOSC18z4PDuKhi1Q-VOxKSaXkbkpByhdrUeUZ7baylQKB-Jn15U6Q2IpVQElIvMadnyPKQLTApyjf4OsjgY1EC9CkTrM3uBwq4dL_rw1k_WbQo8y9BGze_QYnNImbULJ4ov8FNbEoFPd-Se4OsrWrkL8XvB8uFcPqp_LFRfHDol8KOQeDqbhwX7oe98FdDjPf8HSbcXW7Nl3UHoFQoOoyVwLw8fN3WHaTrDZNJf52Kk15luJKzRhkHWXC5HLovn8mF9rfUMb6nC6GtByCgrtFuesG-M52orunTpuKB3EF4dV-jehpQczKvMg7GEeXZ27LqXK0I0RDt-ts_n4B9eBGbOIO5w3AVIpFv_Jk3OW5bd-uBIO9uhrzwlxDQ6jQRGR-jtqAfGtYACrWDBIRUM3nIQf1xxEcImGT8U9hu9CxeEmJlLHdSAPgebYBTmdzo9fggI_A9z5NlxcVGqbO6oq.dJ56TxPn2vM2FwQOdc8Oaw"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"userId\": {{userId}},\n    \"id\": 2,\n    \"title\": \"null\",\n    \"body\": \"est rerum tempore vitae\\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\\nqui aperiam non debitis possimus qui neque nisi nulla\"\n  }"
+				},
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/posts",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d85619e5-1e89-46f4-bbb2-7b3c0a73622b",
+						"exec": [
+							"let json = JSON.parse(responseBody);",
+							"pm.environment.set('userId', json.id);",
+							"",
+							"// Health Check tests",
+							"pm.test(\"Response code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response has a valid JSON body\", function () {",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Verify fields integrity\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.id).not.be.null;",
+							"    pm.expect(jsonData.name).not.be.null;",
+							"    pm.expect(jsonData.username).not.be.null;",
+							"    pm.expect(jsonData.email).not.be.null;",
+							"",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc0JhY2tPZmZpY2UiOmZhbHNlLCJwdWJsaWNJZCI6IjA2MDMxMjIwNjAxIiwidXNlclBsYW50YUlkIjoxOCwidXNlck5pdmVsSWQiOjIxLCJpc0FkbWluaXN0cmFkb3JHZXJhbCI6dHJ1ZSwiYWRtaW5QZXJtaXNzb2VzIjpbXX0.8q2Rw8l_Nq5PVhYo7TYrt6ZA7sABHDFBbHHowPBVK7s",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/users/1",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"users",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
